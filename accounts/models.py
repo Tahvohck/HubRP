@@ -9,8 +9,9 @@ class Account(models.Model):
 	'''Information for a player's account.
 
 	Locally, this means that it defines supporter points, but other things will
-	be linked to one of these. Also includes the helper function definition for
-	creating a new account when a new user is created.
+	be linked to one of these (From this file for example: IPAddresses and
+	Fingerprints, both many-to-one). Also includes the signal function
+	definition for	creating a new account when a new user is created.
 	'''
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
 	supporter_points = models.PositiveIntegerField(default=0)
