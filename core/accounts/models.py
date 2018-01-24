@@ -38,7 +38,7 @@ class Fingerprint(models.Model):
 	account = models.ForeignKey(Account, on_delete=models.CASCADE, null=True)
 	type = models.CharField(
 		max_length=16,
-		choices=tuple((x.name, x.value) for x in types) # This lets us use the enum dynamically
+		choices=tuple((x.name, x.value) for x in types)  # This lets us use the enum dynamically
 	)
 	fingerprint = models.UUIDField()
 
