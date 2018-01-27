@@ -1,6 +1,7 @@
 '''Models for the things needed for an account'''
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
 from enum import Enum
 
 
@@ -57,10 +58,17 @@ class IPAddress(models.Model):
 
 class Settings(models.Model):
 	'''Account-wide settings.'''
+	def _get_file_loc(instance, filename):
+		user_id = instance.account.id
+		return "{prefix}/key-{filename}.gpg".format(
+			prefix=reverse('core.accounts:files', args=[user_id]).lstrip('/'),
+			filename=filename
+		)
+
 	account = models.OneToOneField(Account, on_delete=models.CASCADE)
 	b_email_DMs = models.BooleanField(default=False)
 	b_show_email = models.BooleanField(default=False)
 	b_show_donations = models.BooleanField(default=False)
 	b_two_factor_auth = models.BooleanField(default=False)  # TODO: 2FA
-
+	gpg_key = models.FileField(upload_to=_get_file_loc)
 	two_factor_auth = models.CharField(max_length=128, default='', blank=True)  # TODO: 2FA
