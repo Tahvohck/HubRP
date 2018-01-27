@@ -53,3 +53,14 @@ class IPAddress(models.Model):
 
 	def __str__(self):
 		return "[{0.id:04}] {0.IP}".format(self)
+
+
+class Settings(models.Model):
+	'''Account-wide settings.'''
+	account = models.OneToOneField(Account, on_delete=models.CASCADE)
+	b_email_DMs = models.BooleanField(default=False)
+	b_show_email = models.BooleanField(default=False)
+	b_show_donations = models.BooleanField(default=False)
+	b_two_factor_auth = models.BooleanField(default=False)  # TODO: 2FA
+
+	two_factor_auth = models.CharField(max_length=128, default='', blank=True)  # TODO: 2FA
