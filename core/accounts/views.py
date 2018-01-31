@@ -3,5 +3,10 @@ from django.http import HttpResponseForbidden
 
 
 # Create your views here.
-def AccountFiles(request, pk):
-	return HttpResponseForbidden('You are not authorized to view user files.')
+def Denied(request, **kwargs):
+	status = 403
+	return render(request, 'accounts/denied.html', status=status, context={
+		'request': request,
+		'status': status
+	})
+#	return HttpResponseForbidden('')
