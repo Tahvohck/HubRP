@@ -16,15 +16,15 @@ class Account(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
 	supporter_points = models.PositiveIntegerField(default=0)
 
-	def __str__(self):
-		return '[{0.id:06}] {1.username}'.format(self, self.user)
-
 	def registerNewAccount(instance, created, **kwargs):
 		'''Create a new Account whenever a new user is created.
 		NOT REGISTERED HERE.
 		'''
 		if created:
 			Account(user=instance).save()
+
+	def __str__(self):
+		return '[{0.id:06}] {1.username}'.format(self, self.user)
 
 
 class Fingerprint(models.Model):
