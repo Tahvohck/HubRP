@@ -53,8 +53,10 @@ class LocationLink(models.Model):
 	'''An abstract link between two Locations'''
 	locked = models.BooleanField(default=False)
 
-	def _make_link_add(location_type):
-		'''Generate a function to add a link between two locations.'''
+	def decorate_link_add(location_type):
+		'''Decorator that generates a function to add a link between two
+		locations, then adds that function to the decorated class.
+		'''
 		def add(loc1, loc2, bidirectional=True):
 			'''Link two Locations together.
 			This function does the same thing for both PlaceLinks and RegionLinks.
@@ -70,7 +72,8 @@ class LocationLink(models.Model):
 					params=dict(tier1=loc1.tier, tier2=loc2.tier),
 					code='tier_mismatch'
 				)
-		return add
+		location_type.add = add
+		return location_type
 
 	def __str__(self):
 		return "{0.name} ({0.id}) <--> {1.name} ({1.id})".format(self.source, self.destination)
@@ -80,13 +83,13 @@ class LocationLink(models.Model):
 		abstract = True
 
 
+@LocationLink.decorate_link_add
 class RegionLink(LocationLink):
 	source = models.ForeignKey('Region', on_delete=models.PROTECT,)
 	destination = models.ForeignKey('Region', on_delete=models.PROTECT, related_name='link',)
-RegionLink.add = LocationLink._make_link_add(RegionLink)
 
 
+@LocationLink.decorate_link_add
 class PlaceLink(LocationLink):
 	source = models.ForeignKey('Place', on_delete=models.PROTECT,)
 	destination = models.ForeignKey('Place', on_delete=models.PROTECT, related_name='link',)
-PlaceLink.add = LocationLink._make_link_add(PlaceLink)
