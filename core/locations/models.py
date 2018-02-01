@@ -76,7 +76,7 @@ class LocationLink(models.Model):
 		return location_type
 
 	def __str__(self):
-		return "{0.name} ({0.id}) <--> {1.name} ({1.id})".format(self.source, self.destination)
+		return "{0.name} ({0.id}) --> {1.name} ({1.id})".format(self.source, self.destination)
 
 	class Meta():
 		unique_together = ('source', 'destination')
