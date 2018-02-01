@@ -15,11 +15,15 @@
 	<tr>
 		<th>Type</th>
 		<th>Print</th>
+		<th>First Seen</th>
+		<th>Last Seen</th>
 	</tr>
 {% for print in account.fingerprint_set.all %}
 	<tr>
 		<td>{{ print.type }}</td>
 		<td>{{ print.fingerprint }}</td>
+		<td>{{ print.first_seen }}</td>
+		<td>{{ print.last_seen }}</td>
 	</tr>
 {% endfor %}
 </table>
@@ -28,10 +32,14 @@
 	<caption>Associated IPs</caption>
 	<tr>
 		<th>Address</th>
+		<th>First Seen</th>
+		<th>Last Seen</th>
 	</tr>
 {% for addr in account.ipaddress_set.all %}
 	<tr>
 		<td>{{ addr.IP }}</td>
+		<td>{{ addr.first_seen }}</td>
+		<td>{{ addr.last_seen }}</td>
 	</tr>
 {% endfor %}
 </table>

@@ -41,6 +41,8 @@ class Fingerprint(models.Model):
 		choices=tuple((x.name, x.value) for x in types)  # This lets us use the enum dynamically
 	)
 	fingerprint = models.UUIDField()
+	last_seen = models.DateTimeField(auto_now=True,)
+	first_seen = models.DateTimeField(auto_now_add=True,)
 
 	def __str__(self):
 		return "{0.fingerprint} ({0.type})".format(self)
@@ -50,6 +52,8 @@ class IPAddress(models.Model):
 	'''IP Address associated with an account'''
 	account = models.ForeignKey(Account, on_delete=models.CASCADE, null=True)
 	IP = models.GenericIPAddressField(unpack_ipv4=True)
+	last_seen = models.DateTimeField(auto_now=True,)
+	first_seen = models.DateTimeField(auto_now_add=True,)
 
 	def __str__(self):
 		return "[{0.id:04}] {0.IP}".format(self)
