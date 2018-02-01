@@ -16,6 +16,23 @@ class Account(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
 	supporter_points = models.PositiveIntegerField(default=0)
 
+	plugins = []
+	class Plugin():
+		'''Access hook for account extension.
+
+		- Add template to account view (via `template`)
+		'''
+		template = ''
+
+
+	def register_plugin(plug):
+		'''Register an `Account.plugin` for use.'''
+		if issubclass(plug, Account.Plugin) and plug is not Account.Plugin:
+			if plug not in Account.plugins:
+				Account.plugins.append(plug)
+		else:
+			raise TypeError('Cannot register a non-plugin')
+
 	def registerNewAccount(instance, created, **kwargs):
 		'''Create a new Account whenever a new user is created.
 		NOT REGISTERED HERE.
