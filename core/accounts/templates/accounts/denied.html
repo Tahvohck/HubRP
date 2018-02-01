@@ -1,0 +1,16 @@
+<h1>HTTP {{ status }}</h1>
+<h3>You are not authorized to view accounts at this level of detail.</h3>
+<pre>
+SCHEME  {{ request.scheme }}
+PATH    {{ request.path }}
+HOST    {{ request.META.HTTP_HOST }}
+REQUEST {{ request.method }} {{ request.build_absolute_uri }}
+YOU:    {{ request.META.REMOTE_ADDR }}
+
+  META
+-------
+ACCEPT   {{ request.META.HTTP_ACCEPT }}
+REF      {{ request.META.HTTP_REFERER }}
+AGENT    {{ request.META.HTTP_USER_AGENT }}
+
+</pre>
