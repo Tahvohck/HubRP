@@ -17,4 +17,5 @@ def Acct_Details(request, id, **kwargs):
 	account = get_object_or_404(Account, pk=id)
 	return render(request, 'accounts/account.html', context={
 		'account': account,
+		'plugins': Account.plugins,
 	})

@@ -43,3 +43,7 @@
 	</tr>
 {% endfor %}
 </table>
+
+{% for plug in plugins %}
+	{% include plug.template %}
+{% endfor %}
