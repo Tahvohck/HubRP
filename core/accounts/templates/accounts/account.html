@@ -2,9 +2,9 @@
 <p id=SP>{{ account.supporter_points }} SP</p>
 
 {% if account.user.email %}
-<a id=email href="mailto:{{ account.user.email }}">{{ account.user.email }}</a>
+	<a id=email href="mailto:{{ account.user.email }}">{{ account.user.email }}</a>
 {% else %}
-<p id=email>No email address registered.</p>
+	<p id=email>No email address registered.</p>
 {% endif %}
 
 <p>Joined: {{ account.user.date_joined }}</p>
