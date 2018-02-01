@@ -1,0 +1,37 @@
+<h2 id=user>{{ account.user.username }}</h2>
+<p id=SP>{{ account.supporter_points }} SP</p>
+
+{% if account.user.email %}
+<a id=email href="mailto:{{ account.user.email }}">{{ account.user.email }}</a>
+{% else %}
+<p id=email>No email address registered.</p>
+{% endif %}
+
+<p>Joined: {{ account.user.date_joined }}</p>
+<p>Last on: {{ account.user.last_login }}</p>
+
+<table id=fingerprints>
+	<caption>Fingerprints</caption>
+	<tr>
+		<th>Type</th>
+		<th>Print</th>
+	</tr>
+{% for print in account.fingerprint_set.all %}
+	<tr>
+		<td>{{ print.type }}</td>
+		<td>{{ print.fingerprint }}</td>
+	</tr>
+{% endfor %}
+</table>
+<br />
+<table id=addresses>
+	<caption>Associated IPs</caption>
+	<tr>
+		<th>Address</th>
+	</tr>
+{% for addr in account.ipaddress_set.all %}
+	<tr>
+		<td>{{ addr.IP }}</td>
+	</tr>
+{% endfor %}
+</table>
