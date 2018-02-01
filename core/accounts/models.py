@@ -35,7 +35,7 @@ class Fingerprint(models.Model):
 		FPTJS2_NOGL = 'FingerprintJS2 Partial: No WebGL'
 		FPTJS2_NOCANV = 'FingerprintJS2 Partial: No Canvas'
 
-	account = models.ForeignKey(Account, on_delete=models.CASCADE, null=True)
+	account = models.ForeignKey(Account, on_delete=models.CASCADE, null=True, related_name='fingerprints',)
 	type = models.CharField(
 		max_length=16,
 		choices=tuple((x.name, x.value) for x in types)  # This lets us use the enum dynamically
@@ -50,7 +50,7 @@ class Fingerprint(models.Model):
 
 class IPAddress(models.Model):
 	'''IP Address associated with an account'''
-	account = models.ForeignKey(Account, on_delete=models.CASCADE, null=True)
+	account = models.ForeignKey(Account, on_delete=models.CASCADE, null=True, related_name='IP_addresses',)
 	IP = models.GenericIPAddressField(unpack_ipv4=True)
 	last_seen = models.DateTimeField(auto_now=True,)
 	first_seen = models.DateTimeField(auto_now_add=True,)

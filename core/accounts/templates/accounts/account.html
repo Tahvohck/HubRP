@@ -18,7 +18,7 @@
 		<th>First Seen</th>
 		<th>Last Seen</th>
 	</tr>
-{% for print in account.fingerprint_set.all %}
+{% for print in account.fingerprints.all %}
 	<tr>
 		<td>{{ print.type }}</td>
 		<td>{{ print.fingerprint }}</td>
@@ -35,7 +35,7 @@
 		<th>First Seen</th>
 		<th>Last Seen</th>
 	</tr>
-{% for addr in account.ipaddress_set.all %}
+{% for addr in account.IP_addresses.all %}
 	<tr>
 		<td>{{ addr.IP }}</td>
 		<td>{{ addr.first_seen }}</td>
