@@ -44,3 +44,6 @@ class Stats(models.Model):
 	mana = models.PositiveIntegerField(default=0)
 
 	money = models.PositiveIntegerField(default=0)
+
+	carryWeight = models.PositiveIntegerField(default=0)
+	carryBulk = models.PositiveIntegerField(default=0)
