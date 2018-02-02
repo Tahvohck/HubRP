@@ -37,8 +37,8 @@ class Stats(models.Model):
 	character = models.OneToOneField('Character', on_delete=models.CASCADE, related_name="stats+")
 	hitpoints = models.PositiveIntegerField(default=0)
 	hitpointsMax = models.PositiveIntegerField(default=0)
-	stamina = models.PositiveIntegerField(default=10000)  # Counted in hundreths of a stamina point
-	staminaMax = models.PositiveIntegerField(default=10000)  # Counted in hundreths of a stamina point
+	stamina = models.PositiveIntegerField(default=10000)  # Counted in hundredths of a stamina point
+	staminaMax = models.PositiveIntegerField(default=10000)  # Counted in hundredths of a stamina point
 	attack = models.PositiveIntegerField(default=0)
 	defense = models.PositiveIntegerField(default=0)
 	mana = models.PositiveIntegerField(default=0)
