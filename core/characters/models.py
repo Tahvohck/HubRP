@@ -1,9 +1,20 @@
 from django.db import models
+from django.urls import reverse
 
 
 # Create your models here.
 class Character(models.Model):
+	def get_avatar_name(instance, filename):
+		aid = instance.account.id
+		basepath = reverse('core.accounts:files', args=[aid])
+		return "{0}/avatar_{1}_{2}".format(
+			basepath.strip('/'),
+			instance.name,
+			filename
+		)
+
 	account = models.ForeignKey('accounts.Account', on_delete=models.CASCADE, related_name='characters',)
+	avatar = models.ImageField(default='accounts/0/files/avatar_null.png', upload_to=get_avatar_name)
 	title = models.CharField(max_length=24, blank=True, default='Citizen',)
 	name = models.CharField(max_length=24,)
 	biography = models.CharField(max_length=10 * 1024, blank=True, default='',)
