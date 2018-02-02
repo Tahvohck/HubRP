@@ -26,18 +26,11 @@ class Character(models.Model):
 	sex = models.CharField(max_length=8, default='')
 	race = models.CharField(max_length=24, blank=True, default='Human')
 
-	def __str__(self):
-		return "{0.title} {0.name}".format(self).strip()
 	biography = models.CharField(max_length=10 * 1024, blank=True, default='',)
 	shortDesc = models.CharField(max_length=256, blank=True, default='A nondescript human specimen.',)
 
 	def __repr__(self):
-		return (
-			"{0.title} {0.name}\n"
-			"{0.gender}{1}{0.race}\n"
-			"{0.shortDesc}".format(
-				self, "" if self.gender == str() else ' ')
-			).strip()
+		return "[{0.id}] {0.title} {0.name}".format(self,).strip()
 
 
 class Stats(models.Model):
