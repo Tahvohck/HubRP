@@ -3,8 +3,8 @@ div.char-card{
 	--lineheight: 30px;
 	--shift: 3px;
 	--imagesize: 150px;
-	width: 425px;
-	height: 210px;
+	width: 410px;
+	height: 225px;
 	background: hsl(37, 28%, 63%);
 	border: solid 2px black;
 	border-radius: 10px;
@@ -41,7 +41,7 @@ div.short {
 	position: absolute;
 	padding:	3px;
 	bottom:		0px;
-	height:		calc(4em * 1.2);
+	height:		calc(5em * 1.2);
 	left:		0px;
 	font-family: monospace;
 	font-size:	11px;
