@@ -27,7 +27,7 @@ class Character(models.Model):
 	homeRegion = models.ForeignKey('locations.Region', on_delete=models.PROTECT, related_name='natives')
 	homePlace = models.ForeignKey('locations.Place', on_delete=models.PROTECT, related_name='inhabitants')
 	lastPlace = models.ForeignKey('locations.Place', on_delete=models.PROTECT, related_name='hereNow')
-	#TODO: Automatic movement up the location tree on lastLocation deletion
+	# TODO: Automatic movement up the location tree on lastLocation deletion
 
 	def __repr__(self):
 		return "[{0.id}] {0.title} {0.name}".format(self,).strip()
