@@ -1,0 +1,28 @@
+{% load static %}
+<link href={% static 'char-card.css' %} rel=stylesheet></link>
+<div id=char-card>
+	<img src="{{ character.avatar.url }}" height=200 width=200 style='object-fit: contain;'></img>
+{% if captions %}
+	<div id=captions>
+		<div>Title</div>
+		<div>Name</div>
+		<div>Height</div>
+		<div>Age</div>
+		<div>Sex</div>
+		<div>Issue date</div>
+	</div>
+{% endif %}
+	<div id=basic>
+		<div id=title>{{ character.title }}</div>
+		<div id=name>{{ character.name }}</div>
+		<div id=height>{{ character.height }} cm</div>
+{% widthratio character.age 365.2422 1 as ageYears %}{# ageDays / year length * 1 #}
+		<div id=age>{{ ageYears }} years</div>
+	</div>
+	<div id=advanced>
+		<div id=sex>{{ character.sex }}</div>
+		<div id=race>{{ character.race }}</div>
+		<div id=joined>{{ character.joined.date.isoformat }}</div>
+	</div>
+	<div id=short>{{ character.shortDesc }}</div>
+</div>
