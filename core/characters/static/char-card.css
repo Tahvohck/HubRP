@@ -1,0 +1,51 @@
+div#char-card{
+    position: relative;
+    --lineheight: 2.5em;
+    --shift: 0em;
+    width: 425px;
+    height: 225px;
+    background: hsl(37, 28%, 63%);
+}
+
+div#basic *, div#advanced * {
+    position: absolute;
+    height: var(--lineheight);
+    line-height: 3em;
+    padding-left:5px;
+    left: calc(150px + 1px);
+    font-family: monospace;
+    font-size: 12px;
+}
+
+div#char-card img {
+    background:gray;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    height:	150px;
+    width:	150px;
+}
+
+div#short {
+	position: absolute;
+	padding:	3px;
+	top:		153px;
+	left:		0px;
+	font-size:	12px;
+}
+
+/* Left hand lines */
+div#title	{top: calc(var(--lineheight) * 0 + var(--shift));}
+div#name	{top: calc(var(--lineheight) * 1 + var(--shift));}
+div#race	{top: calc(var(--lineheight) * 2 + var(--shift));}
+div#sex		{top: calc(var(--lineheight) * 3 + var(--shift));}
+
+/* Right hand lines */
+div#height, div#age, div#joined {
+	text-align: right;
+	left: unset;
+	right: 5px;
+}
+div#height	{top: calc(var(--lineheight) * 1 + var(--shift));}
+div#age		{top: calc(var(--lineheight) * 2 + var(--shift));}
+div#joined	{top: calc(var(--lineheight) * 3 + var(--shift));}
