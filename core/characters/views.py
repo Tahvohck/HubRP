@@ -22,3 +22,13 @@ def charCardByName(request, name, **kwargs):
 	'''Get character by name then pass to `charCard()`'''
 	character = get_object_or_404(Character, name=name)
 	return charCard(request, character, **kwargs)
+
+
+def charCards(request, **kwargs):
+	characterList = Character.objects.all()
+	for char in characterList:
+		char.ageNow = (now() - char.joined).days + char.age
+
+	return render(request, 'characters/card-all.html', context={
+		'characters': characterList,
+	})

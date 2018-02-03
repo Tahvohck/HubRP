@@ -1,0 +1,19 @@
+{% load static %}
+<title>All Character Cards</title>
+<link href={% static 'char-card.css' %} rel=stylesheet></link>
+
+<style>
+	.container {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.char-card {
+		margin: 2px
+	}
+</style>
+
+<div class=container>
+{% for char in characters %}
+	{% include 'characters/char-card.html' with character=char calcAge=char.ageNow css=False %}
+{% endfor %}
+</div>
