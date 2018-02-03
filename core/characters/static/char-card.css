@@ -31,11 +31,11 @@ div#char-card img {
 div#short {
 	position: absolute;
 	padding:	3px;
-	bottom:		-3px;
+	bottom:		0px;
+	height:		calce(4em * 1.2);
 	left:		0px;
+	font-family: monospace;
 	font-size:	11px;
-	line-height:14px;
-	text-indent: calc(var(--imagesize) + 6px);
 }
 
 /* Left hand lines */
