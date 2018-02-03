@@ -2,10 +2,10 @@
 {% load static %}
 <link href={% static 'char-card.css' %} rel=stylesheet></link>
 {% endif %}
-<div id=char-card>
+<div class=char-card>
 	<img src="{{ character.avatar.url }}" height=200 width=200 style='object-fit: contain;'></img>
 {% if not noCaptions %}
-	<div id=captions>
+	<div class=captions>
 		<div>Title</div>
 		<div>Name</div>
 		<div>Height</div>
@@ -14,18 +14,18 @@
 		<div>Issue date</div>
 	</div>
 {% endif %}
-	<div id=basic>
-		<div id=title>{{ character.title }}</div>
-		<div id=name>{{ character.name }}</div>
-		<div id=height>{{ character.height }} cm</div>
+	<div class=basic>
+		<div class=title>{{ character.title }}</div>
+		<div class=name>{{ character.name }}</div>
+		<div class=height>{{ character.height }} cm</div>
 {% widthratio calcAge 365.2422 1 as ageYears %}{# ageDays / year length * 1 #}
-		<div id=age>{{ ageYears }} years</div>
+		<div class=age>{{ ageYears }} years</div>
 	</div>
-	<div id=advanced>
-		<div id=sex>{{ character.sex }}</div>
-		<div id=race>{{ character.race }}</div>
-		<div id=joined>{{ character.joined.date.isoformat }}</div>
-		<div id=nativeof>{{ character.homeRegion.name.upper }}</div>
+	<div class=advanced>
+		<div class=sex>{{ character.sex }}</div>
+		<div class=race>{{ character.race }}</div>
+		<div class=joined>{{ character.joined.date.isoformat }}</div>
+		<div class=nativeof>{{ character.homeRegion.name.upper }}</div>
 	</div>
-	<div id=short>Notes: {{ character.shortDesc }}</div>
+	<div class=short>Notes: {{ character.shortDesc }}</div>
 </div>

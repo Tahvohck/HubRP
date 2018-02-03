@@ -1,4 +1,4 @@
-div#char-card{
+div.char-card{
     position: relative;
     --lineheight: 2.5em;
     --shift: 0em;
@@ -8,7 +8,7 @@ div#char-card{
     background: hsl(37, 28%, 63%);
 }
 
-div#basic *, div#advanced * {
+div.basic *, div.advanced * {
     position: absolute;
     height: var(--lineheight);
     line-height: 3em;
@@ -18,7 +18,7 @@ div#basic *, div#advanced * {
     font-size: 12px;
 }
 
-div#char-card img {
+div.char-card img {
     background:gray;
     position: absolute;
     top: 3px;
@@ -28,7 +28,7 @@ div#char-card img {
 }
 
 /* Description line */
-div#short {
+div.short {
 	position: absolute;
 	padding:	3px;
 	bottom:		0px;
@@ -39,18 +39,18 @@ div#short {
 }
 
 /* Left hand lines */
-div#title	{top: calc(var(--lineheight) * 0 + var(--shift));}
-div#name	{top: calc(var(--lineheight) * 1 + var(--shift));}
-div#race	{top: calc(var(--lineheight) * 2 + var(--shift));}
-div#sex		{top: calc(var(--lineheight) * 3 + var(--shift));}
+div.title	{top: calc(var(--lineheight) * 0 + var(--shift));}
+div.name	{top: calc(var(--lineheight) * 1 + var(--shift));}
+div.race	{top: calc(var(--lineheight) * 2 + var(--shift));}
+div.sex		{top: calc(var(--lineheight) * 3 + var(--shift));}
 
 /* Right hand lines */
-div#height, div#age, div#joined, div#nativeof {
+div.height, div.age, div.joined, div.nativeof {
 	text-align: right;
 	left: unset;
 	right: 5px;
 }
-div#nativeof{top: calc(var(--lineheight) * 0 + var(--shift));}
-div#height	{top: calc(var(--lineheight) * 1 + var(--shift));}
-div#age		{top: calc(var(--lineheight) * 2 + var(--shift));}
-div#joined	{top: calc(var(--lineheight) * 3 + var(--shift));}
+div.nativeof{top: calc(var(--lineheight) * 0 + var(--shift));}
+div.height	{top: calc(var(--lineheight) * 1 + var(--shift));}
+div.age		{top: calc(var(--lineheight) * 2 + var(--shift));}
+div.joined	{top: calc(var(--lineheight) * 3 + var(--shift));}
