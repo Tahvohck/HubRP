@@ -32,7 +32,7 @@ div#short {
 	position: absolute;
 	padding:	3px;
 	bottom:		0px;
-	height:		calce(4em * 1.2);
+	height:		calc(4em * 1.2);
 	left:		0px;
 	font-family: monospace;
 	font-size:	11px;
