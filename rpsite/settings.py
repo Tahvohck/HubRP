@@ -25,6 +25,12 @@ SECRET_KEY = '@g3i4f#nw15gtjmjigo65%c1k@4lqm-a#efs1w*_m(_zs%+nfe'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+RS_ROOT		= os.getenv('RPSITE_ROOT', '.')
+MEDIA_URL	= '/media/'
+MEDIA_ROOT	= RS_ROOT + MEDIA_URL
+STATIC_URL	= '/static/'
+STATIC_ROOT	= RS_ROOT + STATIC_URL
+
 ALLOWED_HOSTS = ['*']
 
 
