@@ -1,14 +1,14 @@
 div.char-card{
     position: relative;
-    --lineheight: 2.5em;
-    --shift: 0em;
+    --lineheight: 30px;
+    --shift: 3px;
     --imagesize: 150px;
     width: 425px;
     height: 210px;
     background: hsl(37, 28%, 63%);
 }
 
-div.data * {
+div.data *, div.captions * {
     position: absolute;
     height: var(--lineheight);
     line-height: 3em;
@@ -16,6 +16,13 @@ div.data * {
     left: calc(var(--imagesize) + 1px);
     font-family: monospace;
     font-size: 12px;
+}
+
+div.captions * {
+    width: 60px;
+    line-height: unset;
+    font-size: 10px;
+    text-align: left;
 }
 
 div.char-card img {
