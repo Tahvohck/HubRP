@@ -18,7 +18,7 @@
 		<div id=title>{{ character.title }}</div>
 		<div id=name>{{ character.name }}</div>
 		<div id=height>{{ character.height }} cm</div>
-{% widthratio character.age 365.2422 1 as ageYears %}{# ageDays / year length * 1 #}
+{% widthratio calcAge 365.2422 1 as ageYears %}{# ageDays / year length * 1 #}
 		<div id=age>{{ ageYears }} years</div>
 	</div>
 	<div id=advanced>
