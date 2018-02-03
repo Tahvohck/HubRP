@@ -12,7 +12,7 @@ class Character(models.Model):
 	joined = models.DateTimeField(auto_now_add=True)
 	lastOn = models.DateTimeField(auto_now=True)
 
-	avatar = models.ImageField(default='accounts/0/files/avatar_null.png', upload_to=get_avatar_name)
+	avatar = models.ImageField(default='acct0/avatar_null.png', upload_to=get_avatar_name)
 	title = models.CharField(max_length=24, blank=True, default='Citizen',)
 	name = models.CharField(max_length=24, default='John Doe')
 	age = models.PositiveIntegerField(default=7670)  # In days, roughly 21 years
