@@ -59,7 +59,7 @@ div.height, div.age, div.joined, div.nativeof {
 	left: unset;
 	right: 5px;
 }
-div.nativeof{top: calc(var(--lineheight) * 0 + var(--shift));}
 div.height	{top: calc(var(--lineheight) * 1 + var(--shift));}
 div.age		{top: calc(var(--lineheight) * 2 + var(--shift));}
 div.joined	{top: calc(var(--lineheight) * 3 + var(--shift));}
+div.nativeof{top: calc(var(--lineheight) * 4 + var(--shift));}
