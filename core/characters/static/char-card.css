@@ -6,6 +6,8 @@ div.char-card{
 	width: 425px;
 	height: 210px;
 	background: hsl(37, 28%, 63%);
+	border: solid 2px black;
+	border-radius: 10px;
 }
 
 div.data *, div.captions * {
