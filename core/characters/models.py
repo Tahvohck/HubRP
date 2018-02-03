@@ -6,12 +6,7 @@ from django.urls import reverse
 class Character(models.Model):
 	def get_avatar_name(instance, filename):
 		aid = instance.account.id
-		basepath = reverse('core.accounts:files', args=[aid])
-		return "{0}/avatar_{1}_{2}".format(
-			basepath.strip('/'),
-			instance.name,
-			filename
-		)
+		return "acct{0}/avatar_{1}_{2}".format(aid, instance.name, filename)
 
 	account = models.ForeignKey('accounts.Account', on_delete=models.CASCADE, related_name='characters',)
 	joined = models.DateTimeField(auto_now_add=True)
