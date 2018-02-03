@@ -6,6 +6,7 @@
 	<img src="{{ character.avatar.url }}" height=200 width=200 style='object-fit: contain;'></img>
 {% if not noCaptions %}
 	<div class=captions>
+		<div class=id>ID</div>
 		<div class=title hidden>Title</div>
 		<div class=name>Name</div>
 		<div class=race>Race</div>
@@ -17,6 +18,7 @@
 	</div>
 {% endif %}
 	<div class=data>
+		<div class=id>{{ character.id|stringformat:"07d" }}</div>
 		<div class=title hidden>{{ character.title }}</div>
 		<div class=name>{{ character.name }}</div>
 		<div class=race>{{ character.race }}</div>
