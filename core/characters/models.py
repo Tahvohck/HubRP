@@ -24,6 +24,11 @@ class Character(models.Model):
 	biography = models.CharField(max_length=10 * 1024, blank=True, default='',)
 	shortDesc = models.CharField(max_length=256, blank=True, default='A nondescript human specimen.',)
 
+	homeRegion = models.ForeignKey('locations.Region', on_delete=models.PROTECT, related_name='natives')
+	homePlace = models.ForeignKey('locations.Place', on_delete=models.PROTECT, related_name='inhabitants')
+	lastPlace = models.ForeignKey('locations.Place', on_delete=models.PROTECT, related_name='hereNow')
+	#TODO: Automatic movement up the location tree on lastLocation deletion
+
 	def __repr__(self):
 		return "[{0.id}] {0.title} {0.name}".format(self,).strip()
 
