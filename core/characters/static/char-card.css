@@ -2,7 +2,7 @@ div#char-card{
     position: relative;
     --lineheight: 2.5em;
     --shift: 0em;
-    --imagesize: 150px
+    --imagesize: 150px;
     width: 425px;
     height: 225px;
     background: hsl(37, 28%, 63%);
