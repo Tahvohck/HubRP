@@ -1,8 +1,10 @@
+{% if css %}
 {% load static %}
 <link href={% static 'char-card.css' %} rel=stylesheet></link>
+{% endif %}
 <div id=char-card>
 	<img src="{{ character.avatar.url }}" height=200 width=200 style='object-fit: contain;'></img>
-{% if captions %}
+{% if not noCaptions %}
 	<div id=captions>
 		<div>Title</div>
 		<div>Name</div>

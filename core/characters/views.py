@@ -13,4 +13,5 @@ def charCardByName(request, name, **kwargs):
 	character = get_object_or_404(Character, name=name)
 	return render(request, 'characters/char-card.html', context={
 		'character': character,
+		'css': True, 'noCaptions': False,
 	})
