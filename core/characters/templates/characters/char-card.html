@@ -14,18 +14,16 @@
 		<div>Issue date</div>
 	</div>
 {% endif %}
-	<div class=basic>
+	<div class=data>
 		<div class=title>{{ character.title }}</div>
 		<div class=name>{{ character.name }}</div>
-		<div class=height>{{ character.height }} cm</div>
-{% widthratio calcAge 365.2422 1 as ageYears %}{# ageDays / year length * 1 #}
-		<div class=age>{{ ageYears }} years</div>
-	</div>
-	<div class=advanced>
-		<div class=sex>{{ character.sex }}</div>
 		<div class=race>{{ character.race }}</div>
-		<div class=joined>{{ character.joined.date.isoformat }}</div>
+		<div class=sex>{{ character.sex }}</div>
 		<div class=nativeof>{{ character.homeRegion.name.upper }}</div>
+		<div class=height>{{ character.height }} cm</div>
+		{% widthratio calcAge 365.2422 1 as ageYears %}{# ageDays / year length * 1 #}
+		<div class=age>{{ ageYears }} years</div>
+		<div class=joined>{{ character.joined.date.isoformat }}</div>
 	</div>
 	<div class=short>Notes: {{ character.shortDesc }}</div>
 </div>

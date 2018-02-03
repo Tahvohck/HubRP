@@ -8,7 +8,7 @@ div.char-card{
     background: hsl(37, 28%, 63%);
 }
 
-div.basic *, div.advanced * {
+div.data * {
     position: absolute;
     height: var(--lineheight);
     line-height: 3em;
