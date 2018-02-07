@@ -44,7 +44,7 @@ def vCharCards(request, **kwargs):
 	})
 
 
-def vCharacterDetail():
+def vCharacterDetail(request, character):
 	'''View: Get character detailed info'''
 	ageNow = currentAge(character)
 	return render(request, 'characters/char-detail.html', context={
@@ -52,4 +52,15 @@ def vCharacterDetail():
 		'calcAge': ageNow,
 		'noCaptions': False,
 	})
-	pass
+
+
+def vCharByCID(request, cid, **kwargs):
+	'''View: Get character by CID then pass to `vCharacterDetail()`'''
+	character = get_object_or_404(Character, pk=cid)
+	return vCharacterDetail(request, character, **kwargs)
+
+
+def vCharByName(request, name, **kwargs):
+	'''View: Get character by name then pass to `vCharacterDetail()`'''
+	character = get_object_or_404(Character, name=name)
+	return vCharacterDetail(request, character, **kwargs)
