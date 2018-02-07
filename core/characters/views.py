@@ -41,3 +41,14 @@ def vCharCards(request, **kwargs):
 	return render(request, 'characters/card-all.html', context={
 		'characters': characterList,
 	})
+
+
+def vCharacterDetail():
+	'''View: Get character detailed info'''
+	ageNow = currentAge(character)
+	return render(request, 'characters/char-detail.html', context={
+		'character': character,
+		'calcAge': ageNow,
+		'noCaptions': False,
+	})
+	pass
