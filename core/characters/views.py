@@ -12,7 +12,7 @@ def currentAge(character):
 
 
 def vCharCard(request, character, **kwargs):
-	'''Given a character, calculate their age now, then render a character card'''
+	'''View: Given a character, calculate their age now, then render a character card'''
 	ageNow = currentAge(character)
 	return render(request, 'characters/char-card.html', context={
 		'character': character,
