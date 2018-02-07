@@ -4,9 +4,16 @@ from .models import Character
 
 
 # Create your views here.
+def currentAge(character):
+	'''Get character's time-adjusted age.
+
+	Calculated based on join date and saved age (AKA age at join)'''
+	return (now() - character.joined).days + character.age
+
+
 def charCard(request, character, **kwargs):
 	'''Given a character, calculate their age now, then render a character card'''
-	ageNow = (now() - character.joined).days + character.age
+	ageNow = currentAge(character)
 	return render(request, 'characters/char-card.html', context={
 		'character': character,
 		'calcAge': ageNow,
@@ -29,7 +36,7 @@ def charCardByName(request, name, **kwargs):
 def charCards(request, **kwargs):
 	characterList = Character.objects.all()
 	for char in characterList:
-		char.ageNow = (now() - char.joined).days + char.age
+		char.ageNow = currentAge(character)
 
 	return render(request, 'characters/card-all.html', context={
 		'characters': characterList,
