@@ -50,7 +50,7 @@ def vCharacterDetail(request, character):
 	return render(request, 'characters/char-detail.html', context={
 		'character': character,
 		'calcAge': ageNow,
-		'noCaptions': False,
+		'css': True, 'noCaptions': False,
 	})
 
 
