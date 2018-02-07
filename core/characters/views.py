@@ -22,18 +22,19 @@ def vCharCard(request, character, **kwargs):
 
 
 def vCharCardByCID(request, cid, **kwargs):
-	'''Get character by CID then pass to `charCard()`'''
+	'''View: Get character by CID then pass to `charCard()`'''
 	character = get_object_or_404(Character, pk=cid)
 	return vCharCard(request, character, **kwargs)
 
 
 def vCharCardByName(request, name, **kwargs):
-	'''Get character by name then pass to `charCard()`'''
+	'''View: Get character by name then pass to `charCard()`'''
 	character = get_object_or_404(Character, name=name)
 	return vCharCard(request, character, **kwargs)
 
 
 def vCharCards(request, **kwargs):
+	'''View: Get all character cards'''
 	characterList = Character.objects.all()
 	for char in characterList:
 		char.ageNow = currentAge(character)
