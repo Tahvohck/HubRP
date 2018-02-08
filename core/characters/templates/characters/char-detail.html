@@ -1,8 +1,16 @@
-<h1>{{ character.title }} {{ character.name }}</h1>
-{% include 'characters/char-card.html' %}
+{% extends 'core/site-general.html' %}
+{% load static %}
 
-<div id=biography>
-{% if character.biography != '' %}{{ character.biography|linebreaks }}
-{% else %}{{ character.name|title }} has no biography yet.
-{% endif %}
-</div>
+{% block title %}Character Detail: {{ character.name }}{% endblock %}
+{% block css-list %}<link href={% static 'char-card.css' %} rel=stylesheet title=Default />{% endblock %}
+
+{% block main-content %}
+	<h1>{{ character.title }} {{ character.name }}</h1>
+	{% include 'characters/char-card.html' with css=False %}
+
+	<div id=biography>
+	{% if character.biography != '' %}{{ character.biography|linebreaks }}
+	{% else %}{{ character.name|title }} has no biography yet.
+	{% endif %}
+	</div>
+{% endblock %}
