@@ -1,0 +1,10 @@
+#characters {
+    display: flex;
+    flex-wrap: wrap;
+}
+a.card {
+    color: unset;
+}
+.char-card {
+    margin: 2px;
+}
