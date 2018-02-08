@@ -5,6 +5,7 @@
 <div class="char-card {{ character.name|slugify }}">
 	<img src="{{ character.avatar.url }}" style='object-fit: contain;'
 	height=200 width=200 alt='Avatar for {{ character.name }}'/>
+	<!-- TODO: change this to a set of dl/dt/dd tags -->
 {% if not noCaptions %}
 	<div class=captions>
 		<div class=id>ID</div>
