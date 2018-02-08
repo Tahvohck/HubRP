@@ -7,7 +7,11 @@
 	<body>
 		<header>
 		</header>
-		<main>{% block main-content %}{% endblock %}</main>
+		<section id=content>
+			<nav id=actions></nav>
+			<main>{% block main-content %}{% endblock %}</main>
+			<aside id=char-data></aside>
+		</section>
 		<footer>
 		</footer>
 	</body>
