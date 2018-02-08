@@ -1,3 +1,5 @@
+{% load static %}
+<link href={% static 'char-card.css' %} rel=stylesheet title=Default></link>
 <h2 id=user>{{ account.user.username }}</h2>
 <p id=SP>{{ account.supporter_points }} SP</p>
 
@@ -46,7 +48,7 @@
 <div id=characters>
 {% for character in account.characters.all %}
 <a href={% url 'core.characters:char-detail' character.name %} class=card>
-	{% include 'characters/char-card.html' with css=True %}
+	{% include 'characters/char-card.html' %}
 </a>
 {% empty %}
 <p>Account has no characters.</p>
