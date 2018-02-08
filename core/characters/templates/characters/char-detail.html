@@ -1,0 +1,8 @@
+<h1>{{ character.title }} {{ character.name }}</h1>
+{% include 'characters/char-card.html' %}
+
+<div id=biography>
+{% if character.biography != '' %}{{ character.biography|linebreaks }}
+{% else %}{{ character.name|title }} has no biography yet.
+{% endif %}
+</div>
