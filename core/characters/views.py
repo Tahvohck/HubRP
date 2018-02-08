@@ -37,7 +37,7 @@ def vCharCards(request, **kwargs):
 	'''View: Get all character cards'''
 	characterList = Character.objects.all()
 	for char in characterList:
-		char.ageNow = currentAge(character)
+		char.ageNow = currentAge(char)
 
 	return render(request, 'characters/card-all.html', context={
 		'characters': characterList,
