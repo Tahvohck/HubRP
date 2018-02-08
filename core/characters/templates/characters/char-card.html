@@ -1,0 +1,33 @@
+{% if css %}
+{% load static %}
+<link href={% static 'char-card.css' %} rel=stylesheet title=Default></link>
+{% endif %}
+<div class="char-card {{ character.name|slugify }}">
+	<img src="{{ character.avatar.url }}" height=200 width=200 style='object-fit: contain;'></img>
+{% if not noCaptions %}
+	<div class=captions>
+		<div class=id>ID</div>
+		<div class=title hidden>Title</div>
+		<div class=name>Name</div>
+		<div class=race>Race</div>
+		<div class=sex>Sex</div>
+		<div class=nativeof>Registered In</div>
+		<div class=height>Height</div>
+		<div class=age>Age</div>
+		<div class=joined>Issue date</div>
+	</div>
+{% endif %}
+	<div class=data>
+		<div class=id>{{ character.id|stringformat:"07d" }}</div>
+		<div class=title hidden>{{ character.title }}</div>
+		<div class=name>{{ character.name }}</div>
+		<div class=race>{{ character.race }}</div>
+		<div class=sex>{{ character.sex }}</div>
+		<div class=height>{{ character.height }} cm</div>
+		{% widthratio calcAge 365.2422 1 as ageYears %}{# ageDays / year length * 1 #}
+		<div class=age>{{ ageYears }} years</div>
+		<div class=joined>{{ character.joined.date.isoformat }}</div>
+		<div class=nativeof>{{ character.homeRegion.name.upper }}</div>
+	</div>
+	<div class=short>Notes: {{ character.shortDesc }}</div>
+</div>

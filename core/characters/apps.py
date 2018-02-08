@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class CharactersConfig(AppConfig):
+class Config(AppConfig):
     name = 'core.characters'

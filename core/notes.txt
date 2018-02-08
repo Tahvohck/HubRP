@@ -1,0 +1,4 @@
+Potential styling on included character cards:
+    transition: transform 0.25s;
+	transform: rotate(-2deg);
+	box-shadow: 5px 5px 20px grey;
