@@ -72,3 +72,4 @@ class Settings(models.Model):
 	b_two_factor_auth = models.BooleanField(default=False)  # TODO: 2FA
 	gpg_key = models.FileField(upload_to=_get_file_loc)
 	two_factor_auth = models.CharField(max_length=128, default='', blank=True)  # TODO: 2FA
+	text_size = models.PositiveSmallIntegerField(default=12)
