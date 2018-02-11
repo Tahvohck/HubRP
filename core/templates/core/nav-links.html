@@ -1,0 +1,5 @@
+{% for section in navigation %}
+<div class=navheader id=nav-{{ section.name|slugify }}>{{ section.name }}</div>
+	{% for link in section.links %}
+	<a class=navlink href={{ link.location }}>{{ link.text }}</a>{% endfor %}
+{% endfor %}
