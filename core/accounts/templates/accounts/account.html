@@ -1,6 +1,13 @@
+{% extends "core/site-general.html" %}
 {% load static %}
-<link href={% static 'char-card.css' %} rel=stylesheet title=Default />
-<link href={% static 'account-detail-default.css' %} rel=stylesheet title=Default />
+
+{% block title %}Account Details: {{ account.user.username }}{% endblock %}
+{% block css-list %}
+	<link href={% static 'char-card.css' %} rel=stylesheet title=Default />
+	<link href={% static 'account-detail-default.css' %} rel=stylesheet title=Default />
+{% endblock %}
+
+{% block main-content %}
 <h2 id=user>{{ account.user.username }}</h2>
 <p id=SP>{{ account.supporter_points }} SP</p>
 
@@ -59,3 +66,4 @@
 {% for plug in plugins %}
 	{% include plug.template %}
 {% endfor %}
+{% endblock %}

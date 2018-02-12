@@ -1,0 +1,15 @@
+{% for section in charDetails %}
+<table class=statbox id=stats-{{ section.name|slugify }}>
+{% for stat in section.stats %}
+	<tr>
+		<td>{{ stat.title }}</td>
+		<td id={{ stat.title|slugify }}>{% spaceless %}
+		{% if stat.barval %}
+			<span>{{ stat.val }}</span><br />
+			<meter value={{ stat.barval }}></meter>
+		{% else %}
+			<span>{{ stat.val }}</span>
+		{% endif %}
+		</td>{% endspaceless %}
+	</tr>{% endfor %}
+</table>{% endfor %}

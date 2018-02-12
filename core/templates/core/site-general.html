@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{% block title %}RPSite Page{% endblock %}</title>
+		{% block css-list %}{% endblock %}
+	</head>
+	<body>
+		<header></header>
+		<section id=content>
+			<nav id=actions>{% block actions %}{% endblock %}</nav>
+			<main>{% block main-content %}{% endblock %}</main>
+			<aside id=char-data>{% block char-data %}{% endblock %}</aside>
+		</section>
+		<footer></footer>
+	</body>
+</html>
