@@ -3,28 +3,28 @@
 {% load static %}
 <link href={% static 'char-card.css' %} rel=stylesheet title=Default />
 {% endif %}
-<div class="char-card {{ char.name|slugify }}">
-	<img src="{{ char.avatar.url }}" style='object-fit: contain;'
-	height=200 width=200 alt='Avatar for {{ char.name }}'/>
+<div class="char-card {{ character.name|slugify }}">
+	<img src="{{ character.avatar.url }}" style='object-fit: contain;'
+	height=200 width=200 alt='Avatar for {{ character.name }}'/>
 	<dl>
 		<dt class=id {% if noCaptions %}hidden{% endif %}>ID</dt>
-		<dd class=id>{{ char.id }}</dd>
+		<dd class=id>{{ character.id }}</dd>
 		<dt class=title hidden>Title</dt>
-		<dd class=title hidden>{{ char.title }}</dd>
+		<dd class=title hidden>{{ character.title }}</dd>
 		<dt class=name {% if noCaptions %}hidden{% endif %}>Name</dt>
-		<dd class=name>{{ char.name }}</dd>
+		<dd class=name>{{ character.name }}</dd>
 		<dt class=race {% if noCaptions %}hidden{% endif %}>Race</dt>
-		<dd class=race>{{ char.race }}</dd>
+		<dd class=race>{{ character.race }}</dd>
 		<dt class=sex {% if noCaptions %}hidden{% endif %}>Sex</dt>
-		<dd class=sex>{{ char.sex |default_if_none:"None" }}</dd>
+		<dd class=sex>{{ character.sex |default_if_none:"None" }}</dd>
 		<dt class=nativeof {% if noCaptions %}hidden{% endif %}>Registered In</dt>
-		<dd class=nativeof>{{ char.nativeof }}</dd>
+		<dd class=nativeof>{{ character.nativeof }}</dd>
 		<dt class=height {% if noCaptions %}hidden{% endif %}>Height</dt>
-		<dd class=height>{{ char.height }} cm</dd>
+		<dd class=height>{{ character.height }} cm</dd>
 		<dt class=age {% if noCaptions %}hidden{% endif %}>Age</dt>
-		<dd class=age>{% ageInYears char.age char.joined %} years</dd>
+		<dd class=age>{% ageInYears character.age character.joined %} years</dd>
 		<dt class=joined {% if noCaptions %}hidden{% endif %}>Issue date</dt>
-		<dd class=joined>{{ char.joined }}</dd>
+		<dd class=joined>{{ character.joined }}</dd>
 	</dl>
-	<div class=short>{{ char.shortDesc }}</div>
+	<div class=short>{{ character.shortDesc }}</div>
 </div>
