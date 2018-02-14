@@ -24,7 +24,7 @@
 		<dt class=age {% if noCaptions %}hidden{% endif %}>Age</dt>
 		<dd class=age>{% ageInYears character.age character.joined %} years</dd>
 		<dt class=joined {% if noCaptions %}hidden{% endif %}>Issue date</dt>
-		<dd class=joined>{{ character.joined }}</dd>
+		<dd class=joined>{{ character.joined.date.isoformat }}</dd>
 	</dl>
 	<div class=short>{{ character.shortDesc }}</div>
 </div>
