@@ -3,28 +3,28 @@
 {% load static %}
 <link href={% static 'char-card.css' %} rel=stylesheet title=Default />
 {% endif %}
-<div class="char-card {{ name|slugify }}">
-	<img src="{{ avatar }}" style='object-fit: contain;'
-	height=200 width=200 alt='Avatar for {{ name }}'/>
+<div class="char-card {{ char.name|slugify }}">
+	<img src="{{ char.avatar.url }}" style='object-fit: contain;'
+	height=200 width=200 alt='Avatar for {{ char.name }}'/>
 	<dl>
 		<dt class=id {% if noCaptions %}hidden{% endif %}>ID</dt>
-		<dd class=id>{{ id }}</dd>
+		<dd class=id>{{ char.id }}</dd>
 		<dt class=title hidden>Title</dt>
-		<dd class=title hidden>{{ title }}</dd>
+		<dd class=title hidden>{{ char.title }}</dd>
 		<dt class=name {% if noCaptions %}hidden{% endif %}>Name</dt>
-		<dd class=name>{{ name }}</dd>
+		<dd class=name>{{ char.name }}</dd>
 		<dt class=race {% if noCaptions %}hidden{% endif %}>Race</dt>
-		<dd class=race>{{ race }}</dd>
+		<dd class=race>{{ char.race }}</dd>
 		<dt class=sex {% if noCaptions %}hidden{% endif %}>Sex</dt>
-		<dd class=sex>{{ sex |default_if_none:"None" }}</dd>
+		<dd class=sex>{{ char.sex |default_if_none:"None" }}</dd>
 		<dt class=nativeof {% if noCaptions %}hidden{% endif %}>Registered In</dt>
-		<dd class=nativeof>{{ nativeof }}</dd>
+		<dd class=nativeof>{{ char.nativeof }}</dd>
 		<dt class=height {% if noCaptions %}hidden{% endif %}>Height</dt>
-		<dd class=height>{{ height }} cm</dd>
+		<dd class=height>{{ char.height }} cm</dd>
 		<dt class=age {% if noCaptions %}hidden{% endif %}>Age</dt>
-		<dd class=age>{% ageInYears age joined %} years</dd>
+		<dd class=age>{% ageInYears char.age char.joined %} years</dd>
 		<dt class=joined {% if noCaptions %}hidden{% endif %}>Issue date</dt>
-		<dd class=joined>{{ joined }}</dd>
+		<dd class=joined>{{ char.joined }}</dd>
 	</dl>
-	<div class=short>{{ shortDesc }}</div>
+	<div class=short>{{ char.shortDesc }}</div>
 </div>
