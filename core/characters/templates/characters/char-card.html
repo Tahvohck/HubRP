@@ -18,7 +18,7 @@
 		<dt class=sex {% if noCaptions %}hidden{% endif %}>Sex</dt>
 		<dd class=sex>{{ character.sex |default_if_none:"None" }}</dd>
 		<dt class=nativeof {% if noCaptions %}hidden{% endif %}>Registered In</dt>
-		<dd class=nativeof>{{ character.nativeof }}</dd>
+		<dd class=nativeof>{{ character.homeRegion.name.upper }}</dd>
 		<dt class=height {% if noCaptions %}hidden{% endif %}>Height</dt>
 		<dd class=height>{{ character.height }} cm</dd>
 		<dt class=age {% if noCaptions %}hidden{% endif %}>Age</dt>
