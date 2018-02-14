@@ -6,12 +6,8 @@ register = template.Library()
 
 
 @register.simple_tag()
-def ageInYears(age, joindate):
+def ageInYears(character):
 	'''Takes a character object and returns the age in years'''
 	daysPerYear = 365.2422
-	if age == str() or not str(age).isnumeric():
-		age = daysPerYear * 21
-	if joindate == str():
-		joindate = now()
-	timeSinceJoin = now() - joindate
-	return int((age + timeSinceJoin.days) / daysPerYear)
+	timeSinceJoin = now() - character.joined
+	return int((character.age + timeSinceJoin.days) / daysPerYear)
