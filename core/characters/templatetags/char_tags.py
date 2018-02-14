@@ -14,4 +14,4 @@ def ageInYears(age, joindate):
 	if joindate == str():
 		joindate = now()
 	timeSinceJoin = now() - joindate
-	return (age + timeSinceJoin.days) / daysPerYear
+	return int((age + timeSinceJoin.days) / daysPerYear)
