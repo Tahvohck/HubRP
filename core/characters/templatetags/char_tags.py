@@ -5,9 +5,13 @@ from django import template
 register = template.Library()
 
 
-@register.filter(is_safe=True)
-def getAgeInYears(value):
+@register.simple_tag()
+def ageInYears(age, joindate):
 	'''Takes a character object and returns the age in years'''
 	daysPerYear = 365.2422
-	timeSinceJoin = now() - value.joined
-	return int((value.age + timeSinceJoin.days) / daysPerYear)
+	if age == str() or not str(age).isnumeric():
+		age = daysPerYear * 21
+	if joindate == str():
+		joindate = now()
+	timeSinceJoin = now() - joindate
+	return (age + timeSinceJoin.days) / daysPerYear
