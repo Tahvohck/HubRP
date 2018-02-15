@@ -1,35 +1,30 @@
+{% load char_tags %}
 {% if css %}
 {% load static %}
 <link href={% static 'char-card.css' %} rel=stylesheet title=Default />
 {% endif %}
-<div class="char-card {{ character.name|slugify }}">
+<div class="char-card {{ character.name |slugify }}">
 	<img src="{{ character.avatar.url }}" style='object-fit: contain;'
 	height=200 width=200 alt='Avatar for {{ character.name }}'/>
-	<!-- TODO: change this to a set of dl/dt/dd tags -->
-{% if not noCaptions %}
-	<div class=captions>
-		<div class=id>ID</div>
-		<div class=title hidden>Title</div>
-		<div class=name>Name</div>
-		<div class=race>Race</div>
-		<div class=sex>Sex</div>
-		<div class=nativeof>Registered In</div>
-		<div class=height>Height</div>
-		<div class=age>Age</div>
-		<div class=joined>Issue date</div>
-	</div>
-{% endif %}
-	<div class=data>
-		<div class=id>{{ character.id|stringformat:"07d" }}</div>
-		<div class=title hidden>{{ character.title }}</div>
-		<div class=name>{{ character.name }}</div>
-		<div class=race>{{ character.race }}</div>
-		<div class=sex>{{ character.sex }}</div>
-		<div class=height>{{ character.height }} cm</div>
-		{% widthratio calcAge 365.2422 1 as ageYears %}{# ageDays / year length * 1 #}
-		<div class=age>{{ ageYears }} years</div>
-		<div class=joined>{{ character.joined.date.isoformat }}</div>
-		<div class=nativeof>{{ character.homeRegion.name.upper }}</div>
-	</div>
-	<div class=short>Notes: {{ character.shortDesc }}</div>
+	<dl>
+		<dt class=id {% if noCaptions %}hidden{% endif %}>ID</dt>
+		<dd class=id>{{ character.id }}</dd>
+		<dt class=title hidden>Title</dt>
+		<dd class=title hidden>{{ character.title }}</dd>
+		<dt class=name {% if noCaptions %}hidden{% endif %}>Name</dt>
+		<dd class=name>{{ character.name }}</dd>
+		<dt class=race {% if noCaptions %}hidden{% endif %}>Race</dt>
+		<dd class=race>{{ character.race }}</dd>
+		<dt class=sex {% if noCaptions %}hidden{% endif %}>Sex</dt>
+		<dd class=sex>{{ character.sex |default:"None" }}</dd>
+		<dt class=nativeof {% if noCaptions %}hidden{% endif %}>Registered In</dt>
+		<dd class=nativeof>{{ character.homeRegion.name.upper }}</dd>
+		<dt class=height {% if noCaptions %}hidden{% endif %}>Height</dt>
+		<dd class=height>{{ character.height }} cm</dd>
+		<dt class=age {% if noCaptions %}hidden{% endif %}>Age</dt>
+		<dd class=age>{% ageInYears character %} years</dd>
+		<dt class=joined {% if noCaptions %}hidden{% endif %}>Issue date</dt>
+		<dd class=joined>{{ character.joined.date.isoformat }}</dd>
+	</dl>
+	<div class=short>{{ character.shortDesc }}</div>
 </div>
