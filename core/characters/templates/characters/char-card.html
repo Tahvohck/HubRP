@@ -3,7 +3,7 @@
 {% load static %}
 <link href={% static 'char-card.css' %} rel=stylesheet title=Default />
 {% endif %}
-<div class="char-card {{ character.name|slugify }}">
+<div class="char-card {{ character.name |slugify }}">
 	<img src="{{ character.avatar.url }}" style='object-fit: contain;'
 	height=200 width=200 alt='Avatar for {{ character.name }}'/>
 	<dl>
