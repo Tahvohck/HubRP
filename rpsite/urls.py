@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('legacy/accounts/', include('core.accounts.urls')),
     path('legacy/char/', include('core.characters.urls')),
+    path("", include('core.pages.urls')),
 ]
