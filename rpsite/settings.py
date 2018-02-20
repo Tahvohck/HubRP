@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 	'core.accounts',
 	'core.characters',
 	'core.locations',
+	'core.pages',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
