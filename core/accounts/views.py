@@ -1,9 +1,12 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseForbidden
+from core.pages.apps import logged_in
 from .models import Account
 
 
 # Create your views here.
+
+@logged_in
 def profilePage(request, **kwargs):
 	account = get_object_or_404(Account, user=request.user)
 	return render(request, 'accounts/account.html', context={
