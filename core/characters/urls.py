@@ -5,9 +5,9 @@ from .views import *
 
 app_name = Config.name
 urlpatterns = [
-	path('cards',			vCharCards,			name='char-card-index'),
-	path('<int:cid>',		vCharByCID,			name='char-detail'),
-	path('<str:name>',		vCharByName,		name='char-detail'),
-	path('card/<int:cid>',	vCharCardByCID,		name='char-card'),
-	path('card/<str:name>',	vCharCardByName,	name='char-card'),
+	path('cards',			vCharCards,	name='char-card-index'),
+	path('<int:id>',		vCharacter,	name='char-detail'),
+	path('<str:name>',		vCharacter,	name='char-detail'),
+	path('card/<int:id>',	vCharCard,	name='char-card'),
+	path('card/<str:name>',	vCharCard,	name='char-card'),
 ]
