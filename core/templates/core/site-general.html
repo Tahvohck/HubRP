@@ -5,7 +5,9 @@
 		{% block css-list %}{% endblock %}
 	</head>
 	<body>
-		<header></header>
+		<header>{% if user.is_authenticated %}
+			<a href={% url 'pages:logout' %}>Log out</a>
+		{% endif %}</header>
 		<section id=content>
 			<nav id=actions>{% block actions %}{% endblock %}</nav>
 			<main>{% block main-content %}{% endblock %}</main>
