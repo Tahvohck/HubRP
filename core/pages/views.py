@@ -5,13 +5,14 @@ from .forms import *
 
 
 _homepage='core.pages:home'
+_profile='core.accounts:profile'
 
 # Create your views here.
 def homepage(request):
 	'''Home page. Log-in if posted to, otherwise display homepage.'''
 	if request.user.is_authenticated:
 		if request.user.is_active:
-			return HttpResponse('You are already logged in!')
+			return redirect(_profile)
 		else:
 			logout(request)
 			return HttpResponse('You are not allowed to log in.')
@@ -22,7 +23,7 @@ def homepage(request):
 		user = authenticate(request, username=request.POST['username'], password=request.POST['password'])
 		if user is not None:
 			login(request, user)
-			return redirect(_homepage)
+			return redirect(_profile)
 		else:
 			form.errors['username'] = ['You did not specify a valid username/password.']
 	return render(request, 'core/homepage.html', context=dict(
