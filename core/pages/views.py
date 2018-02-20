@@ -9,8 +9,12 @@ _homepage='pages:home'
 # Create your views here.
 def homepage(request):
 	'''Home page. Log-in if posted to, otherwise display homepage.'''
-	if not request.user.is_anonymous:
-		return HttpResponse('You are already logged in!')
+	if request.user.is_authenticated:
+		if request.user.is_active:
+			return HttpResponse('You are already logged in!')
+		else:
+			logout(request)
+			return HttpResponse('You are not allowed to log in.')
 
 	form = f_Login()
 	if request.method == 'POST':
