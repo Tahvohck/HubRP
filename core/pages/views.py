@@ -4,6 +4,8 @@ from django.http import HttpResponse
 from .forms import *
 
 
+_homepage='pages:home'
+
 # Create your views here.
 def homepage(request):
 	'''Home page. Log-in if posted to, otherwise display homepage.'''
@@ -16,7 +18,7 @@ def homepage(request):
 		user = authenticate(request, username=request.POST['username'], password=request.POST['password'])
 		if user is not None:
 			login(request, user)
-			return redirect('pages:home')
+			return redirect(_homepage)
 		else:
 			form.errors['username'] = ['You did not specify a valid username/password.']
 	return render(request, 'core/homepage.html', context=dict(
@@ -27,4 +29,4 @@ def homepage(request):
 def log_out(request):
 	'''Log out and then redirect to homepage.'''
 	logout(request)
-	return redirect('/')
+	return redirect(_homepage)
