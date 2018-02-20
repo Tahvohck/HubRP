@@ -6,9 +6,10 @@ from .forms import *
 
 # Create your views here.
 def homepage(request):
-	print(request.user)
+	'''Home page. Log-in if posted to, otherwise display homepage.'''
 	if not request.user.is_anonymous:
 		return HttpResponse('You are already logged in!')
+
 	form = f_Login()
 	if request.method == 'POST':
 		form = f_Login(request.POST)
@@ -24,5 +25,6 @@ def homepage(request):
 
 
 def log_out(request):
+	'''Log out and then redirect to homepage.'''
 	logout(request)
 	return redirect('/')
