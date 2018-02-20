@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from .forms import *
 
 
-_homepage='pages:home'
+_homepage='core.pages:home'
 
 # Create your views here.
 def homepage(request):

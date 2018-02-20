@@ -1,7 +1,7 @@
 {% extends 'core/site-general.html' %}
 {% block title %}{{ sitename |default:"RP Site" }}{% endblock %}
 {% block actions %}
-	<form action="{% url 'pages:home' %}" method=POST>
+	<form action="{% url 'core.pages:home' %}" method=POST>
 		{% csrf_token %}
 		{{ form }}
 		<input type=submit value="Log in" />
