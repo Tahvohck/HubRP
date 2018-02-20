@@ -4,6 +4,12 @@ from .models import Account
 
 
 # Create your views here.
+def profilePage(request, **kwargs):
+	account = get_object_or_404(Account, user=request.user)
+	return render(request, 'accounts/account.html', context={
+		'account': account,
+	})
+
 def Denied(request, **kwargs):
 	status = 403
 	return render(request, 'accounts/denied.html', status=status, context={
