@@ -26,6 +26,7 @@ def homepage(request):
 			return redirect(_profile)
 		else:
 			form.errors['username'] = ['You did not specify a valid username/password.']
+
 	return render(request, 'core/homepage.html', context=dict(
 		sitename='Twisted Hub: home page', form=form
 	))
