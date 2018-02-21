@@ -1,6 +1,6 @@
 '''Models for the things needed for an account'''
+from django.contrib.auth import get_user_model
 from django.db import models
-from django.contrib.auth.models import User
 from enum import Enum
 
 
@@ -13,7 +13,7 @@ class Account(models.Model):
 	Fingerprints, both many-to-one). Also includes the signal function
 	definition for	creating a new account when a new user is created.
 	'''
-	user = models.OneToOneField(User, on_delete=models.CASCADE)
+	user = models.OneToOneField(get_user_model(), on_delete=models.CASCADE)
 	supporter_points = models.PositiveIntegerField(default=0)
 
 	def registerNewAccount(instance, created, **kwargs):
