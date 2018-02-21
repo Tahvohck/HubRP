@@ -20,7 +20,9 @@ def homepage(request):
 	form = f_Login()
 	if request.method == 'POST':
 		form = f_Login(request.POST)
-		user = authenticate(request, username=request.POST['username'], password=request.POST['password'])
+		username = request.POST['username']
+		password = request.POST['password']
+		user = authenticate(request, username=username, password=password)
 		if user is not None:
 			login(request, user)
 			return redirect(_profile)
