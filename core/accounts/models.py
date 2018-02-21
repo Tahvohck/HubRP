@@ -1,6 +1,8 @@
 '''Models for the things needed for an account'''
 from django.contrib.auth import get_user_model
 from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 from enum import Enum
 
 
@@ -16,15 +18,14 @@ class Account(models.Model):
 	user = models.OneToOneField(get_user_model(), on_delete=models.CASCADE)
 	supporter_points = models.PositiveIntegerField(default=0)
 
-	def registerNewAccount(instance, created, **kwargs):
-		'''Create a new Account whenever a new user is created.
-		NOT REGISTERED HERE.
-		'''
-		if created:
-			Account(user=instance).save()
-
 	def __repr__(self):
 		return '[{0.id:05}] {1.username}'.format(self, self.user)
+
+	@receiver(post_save, sender=get_user_model())
+	def registerNewAccount(instance, created, **kwargs):
+		'''Create a new Account whenever a new user is created.'''
+		if created:
+			Account(user=instance).save()
 
 
 class Fingerprint(models.Model):
