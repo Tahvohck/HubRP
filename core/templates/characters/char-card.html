@@ -2,6 +2,7 @@
 {% if css %}
 {% load static %}
 <link href={% static 'char-card.css' %} rel=stylesheet title=Default />
+<link href={% static 'fonts.css' %} rel=stylesheet title=Default />
 {% endif %}
 <div class="char-card {{ character.name |slugify }}">
 	<img src="{{ character.avatar.url }}" style='object-fit: contain;'
