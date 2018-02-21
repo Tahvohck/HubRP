@@ -1,6 +1,8 @@
 '''Models for the things needed for an account'''
+from django.contrib.auth import get_user_model
 from django.db import models
-from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 from enum import Enum
 
 
@@ -13,35 +15,17 @@ class Account(models.Model):
 	Fingerprints, both many-to-one). Also includes the signal function
 	definition for	creating a new account when a new user is created.
 	'''
-	user = models.OneToOneField(User, on_delete=models.CASCADE)
+	user = models.OneToOneField(get_user_model(), on_delete=models.CASCADE)
 	supporter_points = models.PositiveIntegerField(default=0)
 
-	plugins = []
-	class Plugin():
-		'''Access hook for account extension.
+	def __repr__(self):
+		return '[{0.id:05}] {1.username}'.format(self, self.user)
 
-		- Add template to account view (via `template`)
-		'''
-		template = ''
-
-
-	def register_plugin(plug):
-		'''Register an `Account.plugin` for use.'''
-		if issubclass(plug, Account.Plugin) and plug is not Account.Plugin:
-			if plug not in Account.plugins:
-				Account.plugins.append(plug)
-		else:
-			raise TypeError('Cannot register a non-plugin')
-
+	@receiver(post_save, sender=get_user_model())
 	def registerNewAccount(instance, created, **kwargs):
-		'''Create a new Account whenever a new user is created.
-		NOT REGISTERED HERE.
-		'''
+		'''Create a new Account whenever a new user is created.'''
 		if created:
 			Account(user=instance).save()
-
-	def __str__(self):
-		return '[{0.id:06}] {1.username}'.format(self, self.user)
 
 
 class Fingerprint(models.Model):
@@ -61,7 +45,7 @@ class Fingerprint(models.Model):
 	last_seen = models.DateTimeField(auto_now=True,)
 	first_seen = models.DateTimeField(auto_now_add=True,)
 
-	def __str__(self):
+	def __repr__(self):
 		return "{0.fingerprint} ({0.type})".format(self)
 
 
@@ -72,5 +56,5 @@ class IPAddress(models.Model):
 	last_seen = models.DateTimeField(auto_now=True,)
 	first_seen = models.DateTimeField(auto_now_add=True,)
 
-	def __str__(self):
+	def __repr__(self):
 		return "[{0.id:04}] {0.IP}".format(self)
