@@ -6,7 +6,5 @@ from .views import *
 
 app_name = Config.name
 urlpatterns = [
-	path("", profilePage, name='profile',),
-	path('<int:id>/', Acct_Details, name='account',),
-	path('<int:pk>/files/', Denied, name='files',),
+	path("/", accountPage, name='account',),
 ]

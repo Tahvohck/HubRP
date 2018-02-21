@@ -63,6 +63,9 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'rpsite.urls'
 
+STATICFILES_DIRS = [
+	os.path.join(BASE_DIR, 'core', 'static'),
+]
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

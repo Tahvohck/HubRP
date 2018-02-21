@@ -5,14 +5,14 @@ from .forms import *
 
 
 _homepage='core.pages:home'
-_profile='core.accounts:profile'
+_account='core.accounts:account'
 
 # Create your views here.
 def homepage(request):
 	'''Home page. Log-in if posted to, otherwise display homepage.'''
 	if request.user.is_authenticated:
 		if request.user.is_active:
-			return redirect(_profile)
+			return redirect(_account)
 		else:
 			logout(request)
 			return HttpResponse('You are not allowed to log in.')
@@ -27,7 +27,7 @@ def homepage(request):
 			user = authenticate(request, username=username, password=password)
 			if user is not None:
 				login(request, user)
-				return redirect(_profile)
+				return redirect(_account)
 			else:
 				form.errors['username'] = ['You did not specify a valid username/password.']
 		elif request.POST['submit'] == 'register':
@@ -38,7 +38,7 @@ def homepage(request):
 			else:
 				newuser = User.objects.create_user(username, password=password)
 				login(request, newuser)
-				return redirect(_profile)
+				return redirect(_account)
 
 	return render(request, 'core/homepage.html', context=dict(
 		sitename='Twisted Hub: home page', form=form
