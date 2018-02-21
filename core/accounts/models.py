@@ -23,8 +23,8 @@ class Account(models.Model):
 		if created:
 			Account(user=instance).save()
 
-	def __str__(self):
-		return '[{0.id:06}] {1.username}'.format(self, self.user)
+	def __repr__(self):
+		return '[{0.id:05}] {1.username}'.format(self, self.user)
 
 
 class Fingerprint(models.Model):
