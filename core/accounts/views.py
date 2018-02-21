@@ -5,7 +5,6 @@ from .models import Account
 
 
 # Create your views here.
-
 @logged_in
 def accountPage(request, **kwargs):
 	account = get_object_or_404(Account, user=request.user)
