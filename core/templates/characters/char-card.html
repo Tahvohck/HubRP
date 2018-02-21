@@ -19,10 +19,10 @@
 		<dd class=sex>{{ character.sex |default:"None" }}</dd>
 		<dt class=nativeof {% if noCaptions %}hidden{% endif %}>Registered In</dt>
 		<dd class=nativeof>{{ character.homeRegion.name.upper }}</dd>
-		<dt class=height {% if noCaptions %}hidden{% endif %}>Height</dt>
-		<dd class=height>{{ character.height }} cm</dd>
-		<dt class=age {% if noCaptions %}hidden{% endif %}>Age</dt>
-		<dd class=age>{% ageInYears character %} years</dd>
+		<dt class=height {% if noCaptions %}hidden{% endif %}>Height, cm</dt>
+		<dd class=height>{{ character.height }}</dd>
+		<dt class=age {% if noCaptions %}hidden{% endif %}>Age, years</dt>
+		<dd class=age>{% ageInYears character %}</dd>
 		<dt class=joined {% if noCaptions %}hidden{% endif %}>Issue date</dt>
 		<dd class=joined>{{ character.joined.date.isoformat }}</dd>
 	</dl>
