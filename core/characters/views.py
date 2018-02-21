@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.utils.timezone import now
+from core.pages.apps import logged_in
 from .models import Character
 
 
@@ -18,6 +19,7 @@ def vCharCard(request, name=None, id=None, **kwargs):
     })
 
 
+@logged_in
 def vCharCards(request, **kwargs):
 	'''View: Get all character cards'''
 	characterList = Character.objects.all()
