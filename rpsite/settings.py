@@ -31,7 +31,7 @@ MEDIA_ROOT	= RS_ROOT + MEDIA_URL
 STATIC_URL	= '/static/'
 STATIC_ROOT	= RS_ROOT + STATIC_URL
 
-LOGIN_URL	= 'pages:home'
+LOGIN_URL	= 'core.pages:home'
 
 ALLOWED_HOSTS = ['*']
 
