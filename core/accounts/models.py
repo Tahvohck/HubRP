@@ -45,7 +45,7 @@ class Fingerprint(models.Model):
 	last_seen = models.DateTimeField(auto_now=True,)
 	first_seen = models.DateTimeField(auto_now_add=True,)
 
-	def __str__(self):
+	def __repr__(self):
 		return "{0.fingerprint} ({0.type})".format(self)
 
 
@@ -56,5 +56,5 @@ class IPAddress(models.Model):
 	last_seen = models.DateTimeField(auto_now=True,)
 	first_seen = models.DateTimeField(auto_now_add=True,)
 
-	def __str__(self):
+	def __repr__(self):
 		return "[{0.id:04}] {0.IP}".format(self)
