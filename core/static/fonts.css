@@ -1,0 +1,10 @@
+@font-face {
+    font-family: Input;
+    src: url(/frontend/input_regular.ttf);
+}
+@font-face {
+    font-family: Input;
+    src: url(/frontend/input_bold.ttf);
+    font-weight: bold;
+}
+
