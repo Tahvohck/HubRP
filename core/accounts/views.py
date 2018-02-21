@@ -7,7 +7,7 @@ from .models import Account
 # Create your views here.
 
 @logged_in
-def profilePage(request, **kwargs):
+def accountPage(request, **kwargs):
 	account = get_object_or_404(Account, user=request.user)
 	return render(request, 'accounts/account.html', context={
 		'account': account,
