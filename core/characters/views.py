@@ -11,7 +11,7 @@ def getCharacter(name=None, id=None):
 
 # Create your views here.
 def vCharCard(request, name=None, id=None, **kwargs):
-	'''View: Given a character, calculate their age now, then render a character card'''
+	'''View: Find a character and render a character card'''
 	character = getCharacter(name, id)
 	return render(request, 'characters/char-card.html', context={
 		'character': character, 'css': True, 'noCaptions': False,
