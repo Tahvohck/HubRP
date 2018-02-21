@@ -16,6 +16,6 @@ def accountPage(request, **kwargs):
 @logged_in
 def Acct_Details(request, id, **kwargs):
 	account = get_object_or_404(Account, pk=id)
-	return render(request, 'accounts/account.html', context={
+	return render(request, 'accounts/account-admin.html', context={
 		'account': account,
 	})

@@ -1,0 +1,69 @@
+{% extends "core/site-general.html" %}
+{% load static %}
+
+{% block title %}Account Details: {{ account.user.username }}{% endblock %}
+{% block css-list %}
+	<link href={% static 'char-card.css' %} rel=stylesheet title=Default />
+	<link href={% static 'account-detail-default.css' %} rel=stylesheet title=Default />
+{% endblock %}
+
+{% block main-content %}
+<h2 id=user>{{ account.user.username }}</h2>
+<p id=SP>{{ account.supporter_points }} SP</p>
+
+{% if account.user.email %}
+	<a id=email href="mailto:{{ account.user.email }}">{{ account.user.email }}</a>
+{% else %}
+	<p id=email>No email address registered.</p>
+{% endif %}
+
+<p>Joined: {{ account.user.date_joined }}</p>
+<p>Last on: {{ account.user.last_login }}</p>
+
+<table id=fingerprints>
+	<caption>Fingerprints</caption>
+	<tr>
+		<th>Type</th>
+		<th>Print</th>
+		<th>First Seen</th>
+		<th>Last Seen</th>
+	</tr>
+{% for print in account.fingerprints.all %}
+	<tr>
+		<td>{{ print.type }}</td>
+		<td>{{ print.fingerprint }}</td>
+		<td>{{ print.first_seen }}</td>
+		<td>{{ print.last_seen }}</td>
+	</tr>
+{% endfor %}
+</table>
+<br />
+<table id=addresses>
+	<caption>Associated IPs</caption>
+	<tr>
+		<th>Address</th>
+		<th>First Seen</th>
+		<th>Last Seen</th>
+	</tr>
+{% for addr in account.IP_addresses.all %}
+	<tr>
+		<td>{{ addr.IP }}</td>
+		<td>{{ addr.first_seen }}</td>
+		<td>{{ addr.last_seen }}</td>
+	</tr>
+{% endfor %}
+</table>
+<div id=characters>
+{% for character in account.characters.all %}
+<a href={% url 'core.characters:char-detail' character.name %} class=card>
+	{% include 'characters/char-card.html' %}
+</a>
+{% empty %}
+<p>Account has no characters.</p>
+{% endfor %}
+</div>
+
+{% for plug in plugins %}
+	{% include plug.template %}
+{% endfor %}
+{% endblock %}
