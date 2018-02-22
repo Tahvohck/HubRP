@@ -6,8 +6,10 @@ from .views import *
 app_name = Config.name
 urlpatterns = [
 	path('cards',			vCharCards,	name='char-card-index'),
-	path('<int:id>',		vCharacter,	name='char-detail'),
-	path('<str:name>',		vCharacter,	name='char-detail'),
+	# These MUST be second-to-last to ensure correct routing.
 	path('card/<int:id>',	vCharCard,	name='char-card'),
 	path('card/<str:name>',	vCharCard,	name='char-card'),
+	# These MUST be last to ensure correct routing.
+	path('<int:id>',		vCharacter,	name='char-detail'),
+	path('<str:name>',		vCharacter,	name='char-detail'),
 ]
