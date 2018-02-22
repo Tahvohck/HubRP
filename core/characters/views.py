@@ -34,3 +34,9 @@ def vCharacter(request, name=None, id=None):
 	return render(request, 'characters/char-detail.html', context={
 		'character': character, 'css': True, 'noCaptions': False,
 	})
+
+
+def vManage(request):
+	charList = request.user.account.characters.all()
+	raise Exception()
+	pass
