@@ -26,7 +26,6 @@ class Character(models.Model):
 	shortDesc = models.CharField(max_length=256, blank=True, default='A nondescript human specimen.',)
 
 	homeRegion = models.ForeignKey('locations.Region', on_delete=models.PROTECT, related_name='natives')
-	homePlace = models.ForeignKey('locations.Place', on_delete=models.PROTECT, related_name='inhabitants')
 	lastPlace = models.ForeignKey('locations.Place', on_delete=models.PROTECT, related_name='hereNow')
 	# TODO: Automatic movement up the location tree on lastLocation deletion
 
