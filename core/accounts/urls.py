@@ -6,5 +6,5 @@ from .views import *
 
 app_name = Config.name
 urlpatterns = [
-	path("/", accountPage, name='account',),
+	path("", accountPage, name='account',),
 ]
