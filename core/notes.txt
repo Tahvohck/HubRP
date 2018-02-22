@@ -4,3 +4,21 @@ Potential styling on included character cards:
 	box-shadow: 5px 5px 20px grey;
 
 jsfiddle for char-stats.html: https://jsfiddle.net/g4fe11m4/
+
+Potential CSS for character management
+	.char > li {
+    	display: inline-block;
+        margin: 5px
+    }
+    .char {
+    	display: flex;
+        flex-wrap: wrap;
+        border-bottom: solid 1px;
+        min-height: 100px;
+     }
+    .char:first-of-type {
+        border-top: solid 1px;
+     }
+     label {
+     	display: block;
+     }
