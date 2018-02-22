@@ -25,7 +25,7 @@
 <p>Last on: {{ account.user.last_login }}</p>
 
 <div id=characters>
-{% for character in account.characters.all %}
+{% for character in user.characters.all %}
 <a href={% url 'core.characters:char-detail' character.name %} class=card>
 	{% include 'characters/char-card.html' %}
 </a>
