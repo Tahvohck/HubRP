@@ -39,3 +39,7 @@ def vCharacter(request, name=None, id=None):
 def vManage(request):
 	charList = request.user.characters.all()
 	raise NotImplementedError()
+
+
+def vCreate(request):
+	raise NotImplementedError()
