@@ -1,24 +1,24 @@
 {% extends "core/site-general.html" %}
 {% load static %}
 
-{% block title %}Account Details: {{ account.user.username }}{% endblock %}
+{% block title %}Account Details: {{ user.username }}{% endblock %}
 {% block css-list %}
 	<link href={% static 'char-card.css' %} rel=stylesheet title=Default />
 	<link href={% static 'account-detail-default.css' %} rel=stylesheet title=Default />
 {% endblock %}
 
 {% block main-content %}
-<h2 id=user>{{ account.user.username }}</h2>
+<h2 id=user>{{ user.username }}</h2>
 <p id=SP>{{ account.supporter_points }} SP</p>
 
-{% if account.user.email %}
-	<a id=email href="mailto:{{ account.user.email }}">{{ account.user.email }}</a>
+{% if user.email %}
+	<a id=email href="mailto:{{ user.email }}">{{ user.email }}</a>
 {% else %}
 	<p id=email>No email address registered.</p>
 {% endif %}
 
-<p>Joined: {{ account.user.date_joined }}</p>
-<p>Last on: {{ account.user.last_login }}</p>
+<p>Joined: {{ user.date_joined }}</p>
+<p>Last on: {{ user.last_login }}</p>
 
 <table id=fingerprints>
 	<caption>Fingerprints</caption>
