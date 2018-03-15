@@ -12,7 +12,14 @@
 			</nav>
 		{% endif %}</header>
 		<section id=content>
-			<nav id=actions>{% block actions %}{% endblock %}</nav>
+			<nav id=actions>{% block actions %}
+				{% if actions %}{% for section in actions %}
+					<p>{{ section.title }}</p>
+					{% for link in section.links %}
+						<a href={% url link.0 %}><span>{{ link.1 }}</span></a>
+					{% endfor %}
+				{% endfor %}{% endif %}
+			{% endblock %}</nav>
 			<main>{% block main-content %}{% lorem 10 p %}{% endblock %}</main>
 			<aside id=char-data>{% block char-data %}{% endblock %}</aside>
 		</section>
