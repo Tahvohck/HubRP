@@ -1,0 +1,12 @@
+{% extends "core/site-general.html" %}
+
+{% block title %}Create new character{% endblock %}
+
+
+{% block main-content %}
+	<form method=POST>
+		{% csrf_token %}
+		{{ form }}
+		<button type=submit>GO</button>
+	<form>
+{% endblock %}

@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.utils.timezone import now
 from core.pages.apps import logged_in
 from .models import Character
+from .forms import *
 
 
 def getCharacter(name=None, id=None):
@@ -47,5 +48,10 @@ def vManage(request):
 def vCreate(request):
 	if request.method == 'POST':
 		print(request.POST)
-	else: pass
-	raise NotImplementedError()
+		form = fNewCharacter(request.POST)
+	else:
+		form = fNewCharacter()
+	#raise NotImplementedError()
+	return render(request, 'characters/new.html', context={
+		'form': form,
+	})
