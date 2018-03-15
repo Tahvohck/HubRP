@@ -12,7 +12,8 @@ def accountPage(request, **kwargs):
 		dict(title='Character management', links=[
 			('core.characters:create', 'Create new'),
 			('core.characters:manage', 'Manage Existing'),
-	])]
+		]),
+	]
 
 	return render(request, 'accounts/account.html', context={
 		'account': account, 'actions': actions,

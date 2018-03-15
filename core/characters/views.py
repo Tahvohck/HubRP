@@ -16,7 +16,7 @@ def vCharCard(request, name=None, id=None, **kwargs):
 	character = getCharacter(name, id)
 	return render(request, 'characters/char-card.html', context={
 		'character': character, 'css': True, 'noCaptions': False,
-    })
+	})
 
 
 @logged_in

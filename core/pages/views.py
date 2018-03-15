@@ -3,9 +3,9 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms import *
 
+_homepage = 'core.pages:home'
+_account = 'core.accounts:account'
 
-_homepage='core.pages:home'
-_account='core.accounts:account'
 
 # Create your views here.
 def homepage(request):
