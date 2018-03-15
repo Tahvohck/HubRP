@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		{% load static %}
 		<title>{% block title %}RPSite Page{% endblock %}</title>
+
+		<link href={% static 'char-card.css' %} rel=stylesheet title=Default />
+		<link href={% static 'account-detail-default.css' %} rel=stylesheet title=Default />
 		{% block css-list %}{% endblock %}
 	</head>
 	<body>
