@@ -37,7 +37,10 @@ def vCharacter(request, name=None, id=None):
 
 
 def vManage(request):
-	charList = request.user.characters.all()
+	if request.method == 'POST':
+		print(request.POST)
+	else:
+		charList = request.user.characters.all()
 	raise NotImplementedError()
 
 
