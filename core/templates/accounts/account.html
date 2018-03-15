@@ -7,9 +7,6 @@
 	<link href={% static 'account-detail-default.css' %} rel=stylesheet title=Default />
 {% endblock %}
 
-{% block actions %}
-	<a href={% url 'core.characters:manage'%}>Manage my characters</a>
-{% endblock %}
 
 {% block main-content %}
 <h2 id=user>{{ user.username }}</h2>
