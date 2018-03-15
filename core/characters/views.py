@@ -51,7 +51,6 @@ def vCreate(request):
 		form = fNewCharacter(request.POST)
 	else:
 		form = fNewCharacter()
-	#raise NotImplementedError()
 	return render(request, 'characters/new.html', context={
 		'form': form,
 	})
