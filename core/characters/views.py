@@ -45,4 +45,7 @@ def vManage(request):
 
 
 def vCreate(request):
+	if request.method == 'POST':
+		print(request.POST)
+	else: pass
 	raise NotImplementedError()
